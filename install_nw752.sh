@@ -7,12 +7,8 @@ if [ -z $NW752_DISTRIB ]; then
     exit 1
 fi
 
-echo "This installation scipt homedir is:" $NW752_SCRIPT_HOME
-
-# if [ ! -e ./install.sh ]; then
-#     echo "  install.sh NOT found, NW install failed, continue manually"
-#     exit 0
-# fi
+export NW752_SCRIPT_HOME=$(cd `dirname $0` && pwd)
+echo "Installation scipt homedir is:" $NW752_SCRIPT_HOME
 
 # Timestamp
 # date +%s > /tmp/provision-start.timestamp
