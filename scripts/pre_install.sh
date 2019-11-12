@@ -8,8 +8,9 @@ fi
 
 # Start system configurations
 echo "Patching /etc/hosts ..."
+sudo sed -i.bak '/127.0.1.1/d' /etc/hosts
 echo "127.0.1.1 vhcalnplci vhcalnplci.dummy.nodomain" | sudo tee -a /etc/hosts
-#sudo sed -i.bak '/127.*vhcalnplci/d' /etc/hosts
+echo "vhcalnplci" > /etc/hostname
 
 echo "Enabling uuidd ..."
 sudo systemctl enable uuidd.service
