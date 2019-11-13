@@ -21,7 +21,7 @@ sudo service uuidd start
 
 echo "Installing packages (mc, csh, etc) ..."
 sudo apt-get -q update
-sudo apt-get -y -q --no-install-recommends install mc csh libaio1 unrar expect
+sudo apt-get -y -q --no-install-recommends install mc csh libaio1 unrar expect libstdc++6
 # + libstdc++6 ?
 
 echo "Setting timezone to CET and enabling auto time adjutsments ..."
