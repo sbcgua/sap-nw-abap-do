@@ -8,9 +8,12 @@ fi
 
 # Start system configurations
 echo "Patching /etc/hosts ..."
+MY_EXT_IP=`ifconfig eth0 | grep Mask | awk '{print $2}'| cut -f2 -d:`
 sudo sed -i.bak '/127.0.1.1/d' /etc/hosts
-echo "127.0.1.1 vhcalnplci vhcalnplci.dummy.nodomain" | sudo tee -a /etc/hosts
-echo "vhcalnplci" > /etc/hostname
+echo "$MY_EXT_IP vhcalnplci vhcalnplci.dummy.nodomain" | sudo tee -a /etc/hosts
+# todo /etc/cloud/templates/hosts.debian.tmpl ??
+# echo "vhcalnplci" > /etc/hostname
+hostnamectl set-hostname vhcalnplci
 
 echo "Enabling uuidd ..."
 sudo systemctl enable uuidd.service
